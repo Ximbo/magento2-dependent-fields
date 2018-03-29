@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">example_form.example_form_data_source</item>
+            <item name="deps" xsi:type="string">example_form.example_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Acme Dependent Fields Example</item>
+        <item name="layout" xsi:type="array">
+            <item name="type" xsi:type="string">tabs</item>
+        </item>
+    </argument>
+
+    <dataSource name="example_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Acme\DependentFields\Model\Example\DataProvider</argument>
+            <argument name="name" xsi:type="string">example_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">attribute_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+
+    <fieldset name="example">
+
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Sample Fieldset</item>
+            </item>
+        </argument>
+
+        <field name="attribute">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Acme\DependentFields\Model\Example\Attribute</item>
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Attribute</item>
+                    <item name="component" xsi:type="string">Acme_DependentFields/js/form/element/attribute-select</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="mapper" xsi:type="object">Acme\DependentFields\Model\Example\Mapper</item>
+                </item>
+            </argument>
+        </field>
+
+        <field name="attribute_option">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Option</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                </item>
+            </argument>
+        </field>
+
+    </fieldset>
+</form>

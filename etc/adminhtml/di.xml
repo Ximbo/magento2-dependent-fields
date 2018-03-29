@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Acme\DependentFields\Model\Example\AttributeScope">
+        <arguments>
+            <argument name="codes" xsi:type="array">
+                <item name="color" xsi:type="string">color</item>
+                <item name="manufacturer" xsi:type="string">manufacturer</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
